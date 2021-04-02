@@ -1,0 +1,30 @@
+RewriteEngine on
+#RewriteRule ^(.*)\.html$ $1.php
+#lệnh cấm hiện file con khi ko có file chạy mặc định
+Options -Indexes
+#lệnh điều hướng chạy file đầu tiên
+DirectoryIndex index.php layout.php
+#yêu cầu trình duyệt sử dụng bảng mã UFT-8
+AddDefaultCharset UTF-8
+#lệnh đổi tên
+RewriteRule ^$  site/
+RewriteRule ^dang-ky$ site/?ctrl=home&act=dangky [L]
+RewriteRule ^gio-hang$ site/?ctrl=cart&act=cart [L]
+RewriteRule ^doi-pass$ site/?ctrl=home&act=doimatkhau [L]
+RewriteRule ^dien-thoai$ site/?ctrl=home&act=cat [L]
+RewriteRule ^quen-mat-khau$ site/?ctrl=home&act=quenmatkhau [L]
+RewriteRule ^sp/(.*)-(.*)\.html$ ?ctrl=home&act=detail&tenkhongdau=$1&idDT=$2 [L]
+
+
+RewriteRule ^nsx/apple$ ?ctrl=home&act=catloai&idNSX=1 [L]
+RewriteRule ^nsx/samsung$ ?ctrl=home&act=catloai&idNSX=2 [L]
+RewriteRule ^nsx/oppo$ ?ctrl=home&act=catloai&idNSX=3 [L]
+RewriteRule ^nsx/vivo$ ?ctrl=home&act=catloai&idNSX=6 [L]
+RewriteRule ^nsx/xiaomi$ ?ctrl=home&act=catloai&idNSX=8 [L]
+RewriteRule ^nsx/nokia$ ?ctrl=home&act=catloai&idNSX=4 [L]
+RewriteRule ^nsx/LG$ ?ctrl=home&act=catloai&idNSX=7 [L]
+RewriteRule ^nsx/asus$ ?ctrl=home&act=catloai&idNSX=5 [L]
+
+RewriteRule ^them-gio-hang/(.*)$ site/?ctrl=cart&act=addcart&idDT=$1 [L]
+
+RewriteRule ^xoa-gio-hang/(.*)$ site/?ctrl=cart&act=delcart&vitri=$1 [L]
